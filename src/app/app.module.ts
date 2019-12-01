@@ -1,14 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { MatSliderModule } from '@angular/material/slider';
+import { MatGridListModule } from "@angular/material/grid-list";
+import { MatButtonModule } from "@angular/material/button";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material";
+import { LoginComponent } from "./login/login.component";
+import { RegisterComponent } from "./register/register.component";
+import { GuestbookComponent } from "./guestbook/guestbook.component";
+import { LogoutComponent } from "./logout/logout.component";
+import { IndexComponent } from "./index/index.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MatSliderModule],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    GuestbookComponent,
+    LogoutComponent,
+    IndexComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    AppRoutingModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

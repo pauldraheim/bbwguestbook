@@ -1,0 +1,35 @@
+<mat-grid-list cols="3" rowHeight="10:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <p>Please enter your credentials to get access to the guestbook</p>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput placeholder="Name" />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" />
+    </mat-form-field>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <button mat-raised-button color="primary" routerLink="/index">
+      Start Page
+    </button>
+    <button
+      style="margin-left: 5px;"
+      mat-raised-button
+      color="primary"
+      routerLink="/index"
+    >
+      Login
+    </button>
+  </mat-grid-tile>
+</mat-grid-list>
