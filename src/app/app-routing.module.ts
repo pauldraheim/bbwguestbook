@@ -5,6 +5,7 @@ import { GuestbookComponent } from "./guestbook/guestbook.component";
 import { LoginComponent } from "./login/login.component";
 import { RegisterComponent } from "./register/register.component";
 import { LogoutComponent } from "./logout/logout.component";
+import { AdminComponent } from "./admin/admin.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/index", pathMatch: "full" },
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: "guestbook", component: GuestbookComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-  { path: "logout", component: LogoutComponent }
+  { path: "logout", component: LogoutComponent },
+  { path: "admin", component: AdminComponent }
 ];
 
 @NgModule({

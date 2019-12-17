@@ -7,14 +7,19 @@
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile>
     <mat-form-field>
-      <input matInput placeholder="Name" />
+      <input matInput [(ngModel)]="email" placeholder="Name" />
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile>
     <mat-form-field>
-      <input matInput type="password" placeholder="Password" />
+      <input
+        matInput
+        [(ngModel)]="password"
+        type="password"
+        placeholder="Password"
+      />
     </mat-form-field>
   </mat-grid-tile>
   <mat-grid-tile></mat-grid-tile>
@@ -28,6 +33,7 @@
       mat-raised-button
       color="primary"
       routerLink="/index"
+      (click)="login()"
     >
       Login
     </button>

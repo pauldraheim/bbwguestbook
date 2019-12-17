@@ -1,33 +1,97 @@
 <mat-grid-list cols="3" rowHeight="10:1">
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile
-    ><h1 style="text-align: center;">
+    ><h1 *ngIf="!userService.loggedIn" style="text-align: center;">
       Welcome to the BBW Guestbook
+    </h1>
+    <h1
+      *ngIf="userService.loggedIn"
+      style="text-align: center; font-size: 30px;"
+    >
+      BBW Guestbook - {{ userService.sessionUser.email }},
+      {{ getRoleNameById(userService.sessionUser.role) }}
     </h1></mat-grid-tile
   >
   <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <button mat-raised-button color="primary" routerLink="/login">Login</button>
+  <mat-grid-tile *ngIf="!userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile *ngIf="!userService.loggedIn">
+    <button
+      *ngIf="!userService.loggedIn"
+      mat-raised-button
+      color="primary"
+      routerLink="/login"
+    >
+      Login
+    </button>
   </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <button mat-raised-button color="primary" routerLink="/register">
+  <mat-grid-tile *ngIf="!userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile *ngIf="!userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile *ngIf="!userService.loggedIn">
+    <button
+      *ngIf="!userService.loggedIn"
+      mat-raised-button
+      color="primary"
+      routerLink="/register"
+    >
       Register
     </button>
   </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <button mat-raised-button color="primary" routerLink="/guestbook">
+  <mat-grid-tile *ngIf="!userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile *ngIf="userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile *ngIf="userService.loggedIn">
+    <button
+      *ngIf="userService.loggedIn"
+      mat-raised-button
+      color="primary"
+      routerLink="/guestbook"
+    >
       Guestbook
     </button>
   </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <button mat-raised-button color="primary" routerLink="/logout">
+  <mat-grid-tile *ngIf="userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.loggedIn &&
+      userService.sessionUser &&
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.loggedIn &&
+      userService.sessionUser &&
+      userService.sessionUser.role === admin
+    "
+  >
+    <button
+      *ngIf="
+        userService.loggedIn &&
+        userService.sessionUser &&
+        userService.sessionUser.role === admin
+      "
+      mat-raised-button
+      color="primary"
+      routerLink="/admin"
+    >
+      Admin
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.loggedIn &&
+      userService.sessionUser &&
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile *ngIf="userService.loggedIn"></mat-grid-tile>
+  <mat-grid-tile *ngIf="userService.loggedIn">
+    <button
+      *ngIf="userService.loggedIn"
+      mat-raised-button
+      color="primary"
+      routerLink="/logout"
+      (click)="userService.logout()"
+    >
       Logout
     </button>
   </mat-grid-tile>

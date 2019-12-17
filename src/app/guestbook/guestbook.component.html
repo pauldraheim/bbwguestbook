@@ -1,19 +1,78 @@
+<mat-grid-list cols="3" *ngFor="let post of postService.posts" rowHeight="10:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <h3 style="margin-right: 5%;">{{ post.header }}</h3>
+    <p style="margin-right: 5%;">{{ post.text }}</p>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
 <mat-grid-list cols="3" rowHeight="10:1">
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <p>You entered the BBW guestbook</p>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  >
+    <mat-form-field>
+      <input matInput [(ngModel)]="title" type="text" placeholder="Title" />
+    </mat-form-field>
   </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <p>--> It's only for authenticated members</p>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  >
+    <mat-form-field>
+      <input matInput [(ngModel)]="text" type="text" placeholder="Text" />
+    </mat-form-field>
   </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
-  <mat-grid-tile>
-    <p>--> More content not yet available</p>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  >
+    <button mat-raised-button color="primary" (click)="sendPost()">
+      Post
+    </button>
   </mat-grid-tile>
-  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile
+    *ngIf="
+      userService.sessionUser.role === student ||
+      userService.sessionUser.role === admin
+    "
+  ></mat-grid-tile>
   <mat-grid-tile></mat-grid-tile>
   <mat-grid-tile>
     <button mat-raised-button color="primary" routerLink="/index">

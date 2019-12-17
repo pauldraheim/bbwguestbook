@@ -14,6 +14,14 @@ import { GuestbookComponent } from "./guestbook/guestbook.component";
 import { LogoutComponent } from "./logout/logout.component";
 import { IndexComponent } from "./index/index.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./in-memory-data.service";
+import { FormsModule } from "@angular/forms";
+import { PasswordStrengthMeterModule } from "angular-password-strength-meter";
+import { AdminComponent } from "./admin/admin.component";
+import { MatTableModule } from "@angular/material/table";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -22,7 +30,8 @@ import { AppRoutingModule } from "./app-routing.module";
     RegisterComponent,
     GuestbookComponent,
     LogoutComponent,
-    IndexComponent
+    IndexComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,15 @@ import { AppRoutingModule } from "./app-routing.module";
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false
+    }),
+    FormsModule,
+    PasswordStrengthMeterModule,
+    MatTableModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
